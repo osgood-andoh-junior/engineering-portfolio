@@ -1,0 +1,25 @@
+[tool.pytest.ini_options]
+testpaths = ["backend/tests"]
+pythonpath = ["."]
+addopts = "--basetemp=.test-tmp"
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+exclude = ["frontend", ".venv", "ml/notebooks"]
+[tool.ruff.lint]
+select = ["E", "F", "I"]
+
+
+[build-system]
+requires = ["setuptools>=70"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nlp-support-intelligence"
+version = "0.1.0"
+requires-python = ">=3.11"
+description = "Student-owned NLP laboratory and support-ticket software infrastructure"
+
+[tool.setuptools.packages.find]
+include = ["backend*", "ml*"]
+exclude = ["backend.tests*", "ml.tests*"]

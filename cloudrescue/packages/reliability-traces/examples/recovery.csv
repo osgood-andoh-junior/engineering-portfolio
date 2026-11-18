@@ -1,0 +1,13 @@
+time_ms,requests,fault
+0,4,healthy
+1000,5,healthy
+2000,5,latency
+3000,5,latency
+4000,6,disconnect
+5000,6,disconnect
+6000,4,error
+7000,5,healthy
+8000,6,healthy
+9000,4,healthy
+10000,5,healthy
+11000,5,healthy

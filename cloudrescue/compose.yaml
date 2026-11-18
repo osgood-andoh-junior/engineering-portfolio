@@ -1,0 +1,81 @@
+x-python: &python
+  build:
+    context: .
+    dockerfile: infra/Dockerfile.backend
+  env_file: .env
+  environment:
+    DATABASE_URL: postgresql+psycopg://cloudrescue:${POSTGRES_PASSWORD:-cloudrescue}@db:5432/cloudrescue
+    SIM_NETWORK: compose
+
+x-simulator: &simulator
+  <<: *python
+  depends_on:
+    migrate:
+      condition: service_completed_successfully
+
+services:
+  db:
+    image: postgres:17
+    environment:
+      POSTGRES_USER: cloudrescue
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-cloudrescue}
+      POSTGRES_DB: cloudrescue
+    ports:
+      - "127.0.0.1:5432:5432"
+    volumes:
+      - database:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U cloudrescue -d cloudrescue"]
+      interval: 2s
+      timeout: 2s
+      retries: 15
+  migrate:
+    <<: *python
+    command: ["sh", "-c", "uv run --no-sync alembic upgrade head && uv run --no-sync python -m backend.seed"]
+    depends_on:
+      db:
+        condition: service_healthy
+  identity:
+    <<: *simulator
+    command: ["uv", "run", "--no-sync", "python", "-m", "simulator.main", "--host", "0.0.0.0", "--service", "identity"]
+  messaging:
+    <<: *simulator
+    command: ["uv", "run", "--no-sync", "python", "-m", "simulator.main", "--host", "0.0.0.0", "--service", "messaging"]
+  storage:
+    <<: *simulator
+    command: ["uv", "run", "--no-sync", "python", "-m", "simulator.main", "--host", "0.0.0.0", "--service", "storage"]
+  api:
+    <<: *python
+    command: ["uv", "run", "--no-sync", "uvicorn", "backend.api:app", "--host", "0.0.0.0"]
+    ports:
+      - "127.0.0.1:8000:8000"
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+  worker:
+    <<: *python
+    command: ["uv", "run", "--no-sync", "python", "-m", "backend.worker"]
+    restart: on-failure
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+      identity:
+        condition: service_started
+      messaging:
+        condition: service_started
+      storage:
+        condition: service_started
+  dashboard:
+    build:
+      context: .
+      dockerfile: infra/Dockerfile.frontend
+    environment:
+      CLOUDRESCUE_API_URL: http://api:8000
+      ADMIN_TOKEN: ${ADMIN_TOKEN:-}
+    ports:
+      - "127.0.0.1:3000:3000"
+    depends_on:
+      - api
+
+volumes:
+  database:

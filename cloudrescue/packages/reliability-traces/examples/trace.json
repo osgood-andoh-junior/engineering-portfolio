@@ -1,0 +1,7 @@
+[
+  {"time_ms": 1000, "requests": 3, "fault": "healthy"},
+  {"time_ms": 2000, "requests": 3, "fault": "latency"},
+  {"time_ms": 3000, "requests": 3, "fault": "error"},
+  {"time_ms": 4000, "requests": 3, "fault": "disconnect"},
+  {"time_ms": 5000, "requests": 3, "fault": "healthy"}
+]

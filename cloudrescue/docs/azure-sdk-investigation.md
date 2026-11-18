@@ -1,0 +1,12 @@
+# Azure SDK for Python contribution investigation
+
+Reviewed November 14, 2026. The repository contribution guide specifies package checks through azpysdk and package-level tests for SDK changes. RetryPolicy and AsyncRetryPolicy use transport-specific sleep and timeout logic. Relevant changes should preserve Retry-After semantics and verify sync and async behavior. [Contribution guide](https://github.com/Azure/azure-sdk-for-python/blob/main/CONTRIBUTING.md) · [Core developer guide](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/core/azure-core/CLIENT_LIBRARY_DEVELOPER.md)
+
+| Report | Verified status | Evidence and disposition |
+| --- | --- | --- |
+| [#15952](https://github.com/Azure/azure-sdk-for-python/issues/15952) | Closed as not planned | Related [PR #49573](https://github.com/Azure/azure-sdk-for-python/pull/49573) is open and unmerged. Its author reports that a server-directed 120-second wait can be requested under a one-second operation timeout. Their in-memory transport tests cover sync and async policies and three header forms. A focused timeout-budget fix already exists for review. |
+| [#49587](https://github.com/Azure/azure-sdk-for-python/issues/49587) | Open | Linked [PR #49592](https://github.com/Azure/azure-sdk-for-python/pull/49592) is open and unmerged. The report and PR describe retrying a consumed iterator with an empty body after a 503. The proposed fix returns the failure for one-shot bodies and retains retries for replayable bodies. This is already an active patch. |
+
+The current [async retry test suite](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/core/azure-core/tests/async_tests/test_retry_policy_async.py) covers 429 retries, seekable request bodies, and timeout behavior. Its reviewed file blob, `6b115f9a8517cd83459fcef890b18ad609b80cb4`, contains no cancellation test. The two active patches address timeout budgeting and body replay.
+
+Proposed contribution for review: add a focused cancellation test with an in-memory async transport. Return a retryable 429 with Retry-After on the first send. Have the transport signal when it enters its overridden sleep and block on an event. Cancel the pipeline task at that point, then assert that cancellation reaches the caller and the send counter remains one. Use the existing request fixtures and a bounded wait for the sleep signal. This proposal covers caller cancellation during retry backoff and can be verified entirely with fake transport calls. The test has yet to be run against the upstream suite.

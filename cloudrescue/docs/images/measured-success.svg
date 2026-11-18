@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450" role="img">
+<title>Modeled and measured mean HTTP request success</title>
+<rect width="800" height="450" fill="#101827" rx="14"/>
+<g fill="#eef4ff" font-family="system-ui,sans-serif" font-size="15">
+<text x="32" y="45" font-size="23" font-weight="700">Request success across three repeats</text>
+<text x="32" y="72">CloudRescue loopback simulator · authored fault trace</text>
+<text x="32" y="134">Baseline</text>
+<rect x="155" y="117" width="297.50" height="16" rx="3" fill="#668bfc"/>
+<text x="462.50" y="130">56.7%</text>
+<rect x="155" y="141" width="297.50" height="16" rx="3" fill="#52d4b5"/>
+<text x="462.50" y="154">56.7%</text>
+<text x="32" y="206">Retry</text>
+<rect x="155" y="189" width="297.50" height="16" rx="3" fill="#668bfc"/>
+<text x="462.50" y="202">56.7%</text>
+<rect x="155" y="213" width="297.50" height="16" rx="3" fill="#52d4b5"/>
+<text x="462.50" y="226">56.7%</text>
+<text x="32" y="278">Breaker</text>
+<rect x="155" y="261" width="140.00" height="16" rx="3" fill="#668bfc"/>
+<text x="305.00" y="274">26.7%</text>
+<rect x="155" y="285" width="297.50" height="16" rx="3" fill="#52d4b5"/>
+<text x="462.50" y="298">56.7%</text>
+<text x="32" y="350">Rate limiting</text>
+<rect x="155" y="333" width="297.50" height="16" rx="3" fill="#668bfc"/>
+<text x="462.50" y="346">56.7%</text>
+<rect x="155" y="357" width="297.50" height="16" rx="3" fill="#52d4b5"/>
+<text x="462.50" y="370">56.7%</text>
+<text x="32" y="423" fill="#668bfc">■ Modeled</text>
+<text x="145" y="423" fill="#52d4b5">■ Measured</text>
+</g></svg>

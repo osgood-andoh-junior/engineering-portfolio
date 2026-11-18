@@ -1,0 +1,17 @@
+{
+  "name": "fpl-oracle-ai",
+  "private": true,
+  "workspaces": [
+    "apps/web"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace apps/web",
+    "build": "npm run build --workspace apps/web",
+    "test": "npm run test --workspace apps/web",
+    "typecheck": "npm run typecheck --workspace apps/web",
+    "lint": "npm run lint --workspace apps/web",
+    "services:up": "powershell -ExecutionPolicy Bypass -File scripts/compose-services.ps1 up",
+    "services:status": "powershell -ExecutionPolicy Bypass -File scripts/compose-services.ps1 ps",
+    "services:stop": "powershell -ExecutionPolicy Bypass -File scripts/compose-services.ps1 stop"
+  }
+}

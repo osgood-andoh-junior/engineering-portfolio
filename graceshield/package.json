@@ -1,0 +1,15 @@
+{
+  "name": "graceshield",
+  "private": true,
+  "scripts": {
+    "dev": "npm --prefix frontend run dev --",
+    "build": "npm --prefix frontend run build --",
+    "start": "npm --prefix frontend run start --",
+    "lint": "npm --prefix frontend run lint --",
+    "typecheck": "npm --prefix frontend run typecheck --",
+    "test": "npm --prefix frontend run test --",
+    "test:e2e": "npm --prefix frontend run test:e2e --",
+    "format": "node frontend/node_modules/prettier/bin/prettier.cjs --write .",
+    "format:check": "node frontend/node_modules/prettier/bin/prettier.cjs --check ."
+  }
+}

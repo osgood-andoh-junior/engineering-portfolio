@@ -1,0 +1,14 @@
+.git
+.env
+.local-run
+**/.env
+**/.env.local
+.venv
+.uv-cache
+.npm-cache
+.local-pg*
+**/node_modules
+**/.next
+**/__pycache__
+**/playwright-report
+**/test-results

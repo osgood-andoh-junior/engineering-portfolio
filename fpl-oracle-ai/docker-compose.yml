@@ -1,0 +1,73 @@
+services:
+  postgres:
+    image: postgres:17-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: oracle
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-oracle}
+      POSTGRES_DB: oracle
+    ports: ["127.0.0.1:${POSTGRES_PORT:-55432}:5432"]
+    volumes: ["postgres-data:/var/lib/postgresql/data"]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U oracle"]
+      interval: 5s
+      retries: 10
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+    ports: ["127.0.0.1:6379:6379"]
+    command: ["redis-server", "--appendonly", "yes"]
+    volumes: ["redis-data:/data"]
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      retries: 10
+  migrate:
+    build:
+      context: .
+      dockerfile: infrastructure/Dockerfile.api
+    environment: &backend-env
+      DATABASE_URL: postgresql+psycopg://oracle:${POSTGRES_PASSWORD:-oracle}@postgres:5432/oracle
+      REDIS_URL: redis://redis:6379/0
+      ADMIN_TOKEN: ${ADMIN_TOKEN:?Set ADMIN_TOKEN in .env}
+      CORS_ORIGINS: http://localhost:3000,http://127.0.0.1:3000
+    command: ["alembic", "upgrade", "head"]
+    depends_on:
+      postgres: {condition: service_healthy}
+  api:
+    build:
+      context: .
+      dockerfile: infrastructure/Dockerfile.api
+    environment: *backend-env
+    ports: ["127.0.0.1:8000:8000"]
+    volumes: ["oracle-data:/app/data", "oracle-artifacts:/app/artifacts"]
+    depends_on:
+      migrate: {condition: service_completed_successfully}
+      redis: {condition: service_healthy}
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/api/v1/health')"]
+      interval: 15s
+      retries: 5
+  worker:
+    build:
+      context: .
+      dockerfile: infrastructure/Dockerfile.api
+    environment: *backend-env
+    command: ["python", "-m", "workers.run"]
+    volumes: ["oracle-data:/app/data", "oracle-artifacts:/app/artifacts"]
+    depends_on:
+      api: {condition: service_healthy}
+  web:
+    build:
+      context: .
+      dockerfile: infrastructure/Dockerfile.web
+    environment:
+      API_BASE_URL: http://api:8000
+    ports: ["127.0.0.1:3000:3000"]
+    depends_on:
+      api: {condition: service_healthy}
+volumes:
+  postgres-data:
+  redis-data:
+  oracle-data:
+  oracle-artifacts:

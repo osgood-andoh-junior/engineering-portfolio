@@ -1,0 +1,2 @@
+import {test,expect} from '@playwright/test';
+test('overview and truthful unavailable state',async({page})=>{await page.goto('/dashboard');await expect(page.getByRole('heading',{name:'Your edge starts here.'})).toBeVisible();await page.getByRole('link',{name:'Player predictions',exact:true}).click();await expect(page.getByRole('heading',{name:'Player predictions',exact:true})).toBeVisible();await expect(page.getByPlaceholder('Search a player…')).toBeVisible()});

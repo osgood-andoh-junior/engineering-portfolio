@@ -1,0 +1,33 @@
+# Template only; do not apply until paid-service approval and rights review.
+services:
+  - type: web
+    name: fpl-oracle-api
+    runtime: docker
+    dockerfilePath: ./infrastructure/Dockerfile.api
+    preDeployCommand: alembic upgrade head
+    healthCheckPath: /api/v1/health
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: REDIS_URL
+        sync: false
+      - key: ADMIN_TOKEN
+        sync: false
+      - key: CORS_ORIGINS
+        sync: false
+    disk:
+      name: oracle-storage
+      mountPath: /app/data
+      sizeGB: 10
+  - type: worker
+    name: fpl-oracle-worker
+    runtime: docker
+    dockerfilePath: ./infrastructure/Dockerfile.api
+    dockerCommand: python -m workers.run
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: REDIS_URL
+        sync: false
+      - key: ADMIN_TOKEN
+        sync: false

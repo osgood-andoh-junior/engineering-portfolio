@@ -1,0 +1,28 @@
+{
+  "verified_date":"2026-10-28",
+  "source_url":"https://www.premierleague.com/en/news/4325264",
+  "date_precision":"day",
+  "scope":"Current directory checked on the verified date, not a full historical manager dataset. Announcement timestamps are unknown and not invented.",
+  "records":[
+    {"external_id":"51018","name":"Mikel Arteta","club_code":3,"start":"2019-12-22"},
+    {"external_id":"37569","name":"Unai Emery","club_code":7,"start":"2022-11-01"},
+    {"external_id":"48664","name":"Marco Rose","club_code":91,"start":"2026-06-01"},
+    {"external_id":"66206","name":"Keith Andrews","club_code":94,"start":"2025-06-27"},
+    {"external_id":"53902","name":"Fabian Hurzeler","club_code":36,"start":"2024-06-15"},
+    {"external_id":"48314","name":"Xabi Alonso","club_code":8,"start":"2026-07-01"},
+    {"external_id":"50167","name":"Frank Lampard","club_code":9,"start":"2024-11-28"},
+    {"external_id":"62022","name":"Pierre Sage","club_code":31,"start":"2026-06-15"},
+    {"external_id":"85","name":"David Moyes","club_code":11,"start":"2025-01-11"},
+    {"external_id":"58906","name":"Alvaro Arbeloa","club_code":54,"start":"2026-07-07"},
+    {"external_id":"50432","name":"Sergej Jakirovic","club_code":88,"start":"2025-06-11"},
+    {"external_id":"58884","name":"Gary O'Neil","club_code":40,"start":"2026-06-23"},
+    {"external_id":"42856","name":"Daniel Farke","club_code":2,"start":"2023-07-04"},
+    {"external_id":"50428","name":"Andoni Iraola","club_code":14,"start":"2026-06-04"},
+    {"external_id":"48549","name":"Enzo Maresca","club_code":43,"start":"2026-06-29"},
+    {"external_id":"56407","name":"Michael Carrick","club_code":1,"start":"2026-01-13"},
+    {"external_id":"article:4682104","name":"Matthias Jaissle","club_code":4,"start":"2026-08-05"},
+    {"external_id":"44410","name":"Oliver Glasner","club_code":17,"start":"2026-07-06"},
+    {"external_id":"58318","name":"Regis Le Bris","club_code":56,"start":"2024-07-01"},
+    {"external_id":"47376","name":"Roberto De Zerbi","club_code":6,"start":"2026-03-31"}
+  ]
+}

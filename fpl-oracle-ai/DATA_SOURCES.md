@@ -1,0 +1,13 @@
+# Source registry and permissions
+
+Reviewed 2026-10-28:
+
+- FPL JSON endpoints: https://fantasy.premierleague.com/api/ . Public, unofficial interfaces; no published SLA or redistributable-data license verified. Conservative 1 request/second, 15 minute bootstrap/fixture polling, longer on errors. Public manager data is request-scoped and never cached publicly. Preserve raw responses, fetched-at and digest. Availability does not establish commercial redistribution permission.
+- https://github.com/vaastav/Fantasy-Premier-League . Repository LICENSE is MIT for software but explicitly disclaims ownership of FPL/Understat data. Preserve MIT attribution. Historical CSV use is opt-in pending deployment-specific data permission review. Probe each requested season; 404 means unavailable, never fabricated. Match-level CSV contains missing fields across seasons. Historical observation timestamps generally unavailable: archive backtests are retrospective simulations, not fully audited pre-deadline reconstructions.
+- https://github.com/imadeddine-belkat/Premier-League-Stats . A LICENSE on main was not found during review. Disabled pending licensing and coverage confirmation. Do not infer permission from public GitHub access.
+- Official league/club announcements: no universal machine-readable permitted feed verified. Authenticated evidence adapter accepts reviewed official records, with source URL, effective/observed/announcement timestamps. No protected scraping.
+- Official current manager directory https://www.premierleague.com/en/news/4325264 was read and verified on 2026-10-28. Twenty names, source-specific identities, clubs and day-precision tenure start dates are preserved in docs/verified_managers_2026-10-28.json. This is factual manual verification, not a licensed bulk scraping feed. The article's original publication date is not treated as the availability date for later edits. Its observed timestamp is the actual import time. Individual announcement timestamps are unknown and no fabricated announcement events are created. Match records join these verified tenures with actual official fixture scores. Advanced tactics remain unavailable.
+
+Observed match statistics and inferred proxy labels have separate provenance. No pressing, line-height or tactical-fit ratings are generated without supporting observations. No cross-league conversion coefficient is assumed.
+
+Historical source software attribution: Copyright (c) 2017-19 Vaastav Anand; MIT License https://github.com/vaastav/Fantasy-Premier-League/blob/master/LICENSE . Downloaded source license is retained alongside opt-in raw snapshots.

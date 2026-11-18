@@ -1,0 +1,24 @@
+# Deployment and backups
+
+Local PostgreSQL and Redis run through Docker Engine and Compose in Ubuntu WSL2. Application container verification and a remote staging rollout are separate checks.
+
+For Vercel import apps/web as the project root using monorepo workspace installation; set server-only API_BASE_URL to the backend HTTPS origin. Never use NEXT_PUBLIC for secrets. The BFF allows public endpoints only and forwards no admin credentials.
+
+Render template is infrastructure/render.yaml. Set PostgreSQL URL with postgresql+psycopg:// scheme, Redis TLS URL, a long operator token and exact frontend CORS origins. Run Alembic before rollout. Worker and API must access identical trusted model artifacts; Render service disks are not shared. The supplied template is intentionally not deployment-ready until shared artifact object storage is configured. Do not pretend separate service disks share data. Use Compose volumes locally.
+
+Back up PostgreSQL using pg_dump daily; retain encrypted raw snapshots and versioned model artifacts. Test restoration to a separate database monthly. Redis is disposable cache except durable AOF configuration; all jobs remain in PostgreSQL. Before migration, back up and test on staging. Rollback models by toggling exactly one promoted version inside a transaction and regenerating forecasts. Never load uploaded/untrusted pickle artifacts.
+
+Deployment gates: source rights and season rules approved, distributed concurrency tests passed, TLS and private network isolation configured, real historical training and out-of-time results inspected, shared artifacts configured, backup restoration proven, frontend E2E passed. These gates are not claims of completed production validation.
+
+Latest local verification uses actual Compose PostgreSQL and Redis, not the earlier SQLite-only fallback. Docker Engine/Compose were installed in Ubuntu WSL2. PostgreSQL uses host port 55432 to avoid an existing Windows PostgreSQL service; Redis uses 6379. `npm run services:up` includes a project-owned hidden WSL keepalive. Current migration/service/test evidence and restart commands are in LOCAL_VERIFICATION.md. App-container deployment and remote hosting remain unverified.
+
+## Pre-deployment review — 13 November 2026
+
+- The local production build passed lint, type checking, 22 frontend tests and 83 backend tests with PostgreSQL and Redis integration. The standalone server served the dashboard, transfer planner and API proxy. The refreshed forecast batch had 2,016 rows for 672 players across three horizons, and the latest public manager import returned all 15 GW10 picks.
+- A PostgreSQL dump restored into a temporary local database. Revision 0006, 672 players and 32,127 prediction rows were verified. The dump is under the ignored `data/` directory and should remain private.
+- Create a source commit and link the intended remote before connecting a hosting provider. Verify the Docker builds on a runner that can reach the registries. The initial local API build hit a Docker Hub DNS timeout. The revised build context excludes local environments, caches, data and secrets.
+- The current Render template separates API and worker, and the worker requires access to the same trusted model artifacts and warehouse inputs. Choose a storage and publication strategy, restore a seeded staging database, verify artifact paths on Linux, and exercise prediction generation and worker refresh there. The template requires provisioned PostgreSQL and Redis plus environment values for both services. Confirm source rights for the intended audience before public release.
+- The frontend GitHub Actions job invokes live-data browser tests without starting the backend or provisioning data. Supply a seeded test backend or split deterministic CI fixtures from the live-data checks before requiring that job for release. Production traffic also needs rate limiting that accounts for the frontend proxy and multiple API instances.
+- Playwright accepts `PLAYWRIGHT_BASE_URL` for an already running build and `PLAYWRIGHT_BROWSER_CHANNEL=msedge` for a local Edge installation.
+- Browser verification covered all 26 cases across the production run and a targeted rerun. The initial production run passed 19 and encountered seven failures during local API throttling. All seven passed on rerun. A separate eight-case navigation and responsive suite also passed. A sustained concurrent traffic test remains open.
+- The npm production dependency audit reported zero vulnerabilities. The API image retry reached dependency installation and timed out downloading from PyPI. The web image build failed after interruption during base image download. Neither image has a completed build and runtime verification. The Render schema was retrieved, but the installed validator could not process its JSON Schema 2020-12 dialect and downloading a compatible validator failed.

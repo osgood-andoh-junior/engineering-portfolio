@@ -1,0 +1,609 @@
+{
+  "categories": [
+    {
+      "id": "writing",
+      "slug": "writing-supplies",
+      "name": "Writing Supplies",
+      "shortName": "Writing supplies",
+      "icon": "pen",
+      "description": "A good idea starts with a great pen.",
+      "color": "#eaf0f8"
+    },
+    {
+      "id": "paper",
+      "slug": "paper-notebooks",
+      "name": "Paper & Notebooks",
+      "shortName": "Paper & notebooks",
+      "icon": "notebook",
+      "description": "Fresh pages for your next chapter.",
+      "color": "#f2ece2"
+    },
+    {
+      "id": "school",
+      "slug": "school-supplies",
+      "name": "School Supplies",
+      "shortName": "School supplies",
+      "icon": "backpack",
+      "description": "Little essentials for big school days.",
+      "color": "#e7efe9"
+    },
+    {
+      "id": "learning",
+      "slug": "educational-learning-materials",
+      "name": "Educational & Learning Materials",
+      "shortName": "Learning materials",
+      "icon": "graduation",
+      "description": "Tools to make every lesson count.",
+      "color": "#eeeaf7"
+    },
+    {
+      "id": "toys",
+      "slug": "educational-toys-games",
+      "name": "Educational Toys & Games",
+      "shortName": "Toys & games",
+      "icon": "puzzle",
+      "description": "Curiosity, learning and a little play.",
+      "color": "#fbefdf"
+    },
+    {
+      "id": "arts",
+      "slug": "arts-crafts",
+      "name": "Arts & Crafts",
+      "shortName": "Arts & crafts",
+      "icon": "palette",
+      "description": "Make room for a little imagination.",
+      "color": "#f6e7e7"
+    },
+    {
+      "id": "office",
+      "slug": "office-supplies-personal-accessories",
+      "name": "Office Supplies & Personal Accessories",
+      "shortName": "Office essentials",
+      "icon": "briefcase",
+      "description": "Bring a little order to your workday.",
+      "color": "#e7edf3"
+    },
+    {
+      "id": "printing",
+      "slug": "printing-supplies",
+      "name": "Printing Supplies",
+      "shortName": "Printing supplies",
+      "icon": "printer",
+      "description": "From the first draft to the final page.",
+      "color": "#eceded"
+    },
+    {
+      "id": "maths",
+      "slug": "mathematics-supplies",
+      "name": "Mathematics Supplies",
+      "shortName": "Mathematics",
+      "icon": "ruler",
+      "description": "Everything adds up to better learning.",
+      "color": "#e8f1ef"
+    },
+    {
+      "id": "science",
+      "slug": "science-laboratory-learning",
+      "name": "Science & Laboratory Learning",
+      "shortName": "Science & laboratory",
+      "icon": "flask",
+      "description": "Explore, discover and ask what’s next.",
+      "color": "#eaf0f8"
+    },
+    {
+      "id": "books",
+      "slug": "books-publications",
+      "name": "Books & Publications",
+      "shortName": "Books & publications",
+      "icon": "book",
+      "description": "Open a book. Open a new possibility.",
+      "color": "#f2ece2"
+    }
+  ],
+  "products": [
+    {
+      "id": "p01",
+      "slug": "everyday-hardcover-notebook",
+      "name": "Everyday Hardcover Notebook",
+      "categoryId": "paper",
+      "price": {
+        "amount": 4500,
+        "currency": "GHS"
+      },
+      "images": [
+        {
+          "src": "/images/notebook.svg",
+          "alt": "Illustration of everyday hardcover notebook"
+        },
+        {
+          "src": "/images/notebook.svg",
+          "alt": "Alternate view illustration of everyday hardcover notebook"
+        }
+      ],
+      "description": "A beautifully simple place for notes, plans and ideas. This sample A5 notebook has a cloth-style cover and ruled pages.",
+      "details": [
+        "Demonstration product — not approved inventory",
+        "Specifications are illustrative and need verification",
+        "Price and availability are provisional"
+      ],
+      "availability": "available",
+      "featured": true
+    },
+    {
+      "id": "p02",
+      "slug": "smooth-writing-ballpoint-set",
+      "name": "Smooth Writing Ballpoint Set",
+      "categoryId": "writing",
+      "price": {
+        "amount": 1800,
+        "currency": "GHS"
+      },
+      "images": [
+        {
+          "src": "/images/pens.svg",
+          "alt": "Illustration of smooth writing ballpoint set"
+        },
+        {
+          "src": "/images/pens.svg",
+          "alt": "Alternate view illustration of smooth writing ballpoint set"
+        }
+      ],
+      "description": "A sample set of three everyday ballpoint pens for comfortable note-taking.",
+      "details": [
+        "Demonstration product — not approved inventory",
+        "Specifications are illustrative and need verification",
+        "Price and availability are provisional"
+      ],
+      "availability": "available",
+      "featured": true
+    },
+    {
+      "id": "p03",
+      "slug": "everyday-school-backpack",
+      "name": "Everyday School Backpack",
+      "categoryId": "school",
+      "price": {
+        "amount": 16500,
+        "currency": "GHS"
+      },
+      "images": [
+        {
+          "src": "/images/backpack.svg",
+          "alt": "Illustration of everyday school backpack"
+        },
+        {
+          "src": "/images/backpack.svg",
+          "alt": "Alternate view illustration of everyday school backpack"
+        }
+      ],
+      "description": "A sample school bag with a roomy main compartment and a front pocket for small essentials.",
+      "details": [
+        "Demonstration product — not approved inventory",
+        "Specifications are illustrative and need verification",
+        "Price and availability are provisional"
+      ],
+      "availability": "available",
+      "featured": true
+    },
+    {
+      "id": "p04",
+      "slug": "colour-pencil-collection",
+      "name": "Colour Pencil Collection",
+      "categoryId": "arts",
+      "price": {
+        "amount": 5800,
+        "currency": "GHS"
+      },
+      "images": [
+        {
+          "src": "/images/pencils.svg",
+          "alt": "Illustration of colour pencil collection"
+        },
+        {
+          "src": "/images/pencils.svg",
+          "alt": "Alternate view illustration of colour pencil collection"
+        }
+      ],
+      "description": "A sample set of twelve coloured pencils for sketching and creative classroom projects.",
+      "details": [
+        "Demonstration product — not approved inventory",
+        "Specifications are illustrative and need verification",
+        "Price and availability are provisional"
+      ],
+      "availability": "available",
+      "featured": true
+    },
+    {
+      "id": "p05",
+      "slug": "the-curious-learner",
+      "name": "The Curious Learner",
+      "categoryId": "books",
+      "price": {
+        "amount": 8500,
+        "currency": "GHS"
+      },
+      "images": [
+        {
+          "src": "/images/book.svg",
+          "alt": "Illustration of the curious learner"
+        },
+        {
+          "src": "/images/book.svg",
+          "alt": "Alternate view illustration of the curious learner"
+        }
+      ],
+      "description": "An illustrative book fixture about exploring the world through reading. This is not a published title offered for sale.",
+      "details": [
+        "Demonstration product — not approved inventory",
+        "Specifications are illustrative and need verification",
+        "Price and availability are provisional"
+      ],
+      "availability": "available",
+      "featured": false
+    },
+    {
+      "id": "p06",
+      "slug": "geometry-essentials-set",
+      "name": "Geometry Essentials Set",
+      "categoryId": "maths",
+      "price": {
+        "amount": 3500,
+        "currency": "GHS"
+      },
+      "images": [
+        {
+          "src": "/images/geometry.svg",
+          "alt": "Illustration of geometry essentials set"
+        },
+        {
+          "src": "/images/geometry.svg",
+          "alt": "Alternate view illustration of geometry essentials set"
+        }
+      ],
+      "description": "A sample geometry set with a ruler, protractor and set squares.",
+      "details": [
+        "Demonstration product — not approved inventory",
+        "Specifications are illustrative and need verification",
+        "Price and availability are provisional"
+      ],
+      "availability": "available",
+      "featured": false
+    },
+    {
+      "id": "p07",
+      "slug": "alphabet-learning-cards",
+      "name": "Alphabet Learning Cards",
+      "categoryId": "learning",
+      "price": {
+        "amount": 4200,
+        "currency": "GHS"
+      },
+      "images": [
+        {
+          "src": "/images/cards.svg",
+          "alt": "Illustration of alphabet learning cards"
+        },
+        {
+          "src": "/images/cards.svg",
+          "alt": "Alternate view illustration of alphabet learning cards"
+        }
+      ],
+      "description": "Illustrative letter cards for guided recognition and early learning activities.",
+      "details": [
+        "Demonstration product — not approved inventory",
+        "Specifications are illustrative and need verification",
+        "Price and availability are provisional"
+      ],
+      "availability": "available",
+      "featured": false
+    },
+    {
+      "id": "p08",
+      "slug": "wooden-learning-blocks",
+      "name": "Wooden Learning Blocks",
+      "categoryId": "toys",
+      "price": {
+        "amount": 9500,
+        "currency": "GHS"
+      },
+      "images": [
+        {
+          "src": "/images/blocks.svg",
+          "alt": "Illustration of wooden learning blocks"
+        },
+        {
+          "src": "/images/blocks.svg",
+          "alt": "Alternate view illustration of wooden learning blocks"
+        }
+      ],
+      "description": "Sample colourful building blocks for imaginative play. Age suitability has not been verified.",
+      "details": [
+        "Demonstration product — not approved inventory",
+        "Specifications are illustrative and need verification",
+        "Price and availability are provisional"
+      ],
+      "availability": "available",
+      "featured": false
+    },
+    {
+      "id": "p09",
+      "slug": "desktop-organiser",
+      "name": "Desktop Organiser",
+      "categoryId": "office",
+      "price": {
+        "amount": 6500,
+        "currency": "GHS"
+      },
+      "images": [
+        {
+          "src": "/images/organiser.svg",
+          "alt": "Illustration of desktop organiser"
+        },
+        {
+          "src": "/images/organiser.svg",
+          "alt": "Alternate view illustration of desktop organiser"
+        }
+      ],
+      "description": "A sample desk organiser with spaces for pens and small stationery.",
+      "details": [
+        "Demonstration product — not approved inventory",
+        "Specifications are illustrative and need verification",
+        "Price and availability are provisional"
+      ],
+      "availability": "available",
+      "featured": false
+    },
+    {
+      "id": "p10",
+      "slug": "a4-copy-paper",
+      "name": "A4 Copy Paper",
+      "categoryId": "printing",
+      "price": {
+        "amount": 7800,
+        "currency": "GHS"
+      },
+      "images": [
+        {
+          "src": "/images/paper.svg",
+          "alt": "Illustration of a4 copy paper"
+        },
+        {
+          "src": "/images/paper.svg",
+          "alt": "Alternate view illustration of a4 copy paper"
+        }
+      ],
+      "description": "A sample pack of A4 paper for testing the printing supplies catalogue.",
+      "details": [
+        "Demonstration product — not approved inventory",
+        "Specifications are illustrative and need verification",
+        "Price and availability are provisional"
+      ],
+      "availability": "available",
+      "featured": false
+    },
+    {
+      "id": "p11",
+      "slug": "learning-magnifier",
+      "name": "Learning Magnifier",
+      "categoryId": "science",
+      "price": {
+        "amount": 2800,
+        "currency": "GHS"
+      },
+      "images": [
+        {
+          "src": "/images/magnifier.svg",
+          "alt": "Illustration of learning magnifier"
+        },
+        {
+          "src": "/images/magnifier.svg",
+          "alt": "Alternate view illustration of learning magnifier"
+        }
+      ],
+      "description": "A sample handheld magnifier for supervised observation activities. Not laboratory-certified equipment.",
+      "details": [
+        "Demonstration product — not approved inventory",
+        "Specifications are illustrative and need verification",
+        "Price and availability are provisional"
+      ],
+      "availability": "available",
+      "featured": false
+    },
+    {
+      "id": "p12",
+      "slug": "spiral-study-notebook",
+      "name": "Spiral Study Notebook",
+      "categoryId": "paper",
+      "price": {
+        "amount": 3200,
+        "currency": "GHS"
+      },
+      "images": [
+        {
+          "src": "/images/spiral.svg",
+          "alt": "Illustration of spiral study notebook"
+        },
+        {
+          "src": "/images/spiral.svg",
+          "alt": "Alternate view illustration of spiral study notebook"
+        }
+      ],
+      "description": "A sample spiral notebook for class notes and everyday lists.",
+      "details": [
+        "Demonstration product — not approved inventory",
+        "Specifications are illustrative and need verification",
+        "Price and availability are provisional"
+      ],
+      "availability": "available",
+      "featured": false
+    },
+    {
+      "id": "p13",
+      "slug": "graphite-pencil-set",
+      "name": "Graphite Pencil Set",
+      "categoryId": "writing",
+      "price": {
+        "amount": 2200,
+        "currency": "GHS"
+      },
+      "images": [
+        {
+          "src": "/images/pencils.svg",
+          "alt": "Illustration of graphite pencil set"
+        },
+        {
+          "src": "/images/pencils.svg",
+          "alt": "Alternate view illustration of graphite pencil set"
+        }
+      ],
+      "description": "Sample graphite writing pencils for school or office work.",
+      "details": [
+        "Demonstration product — not approved inventory",
+        "Specifications are illustrative and need verification",
+        "Price and availability are provisional"
+      ],
+      "availability": "available",
+      "featured": false
+    },
+    {
+      "id": "p14",
+      "slug": "creative-sketchbook",
+      "name": "Creative Sketchbook",
+      "categoryId": "arts",
+      "price": {
+        "amount": 4800,
+        "currency": "GHS"
+      },
+      "images": [
+        {
+          "src": "/images/notebook.svg",
+          "alt": "Illustration of creative sketchbook"
+        },
+        {
+          "src": "/images/notebook.svg",
+          "alt": "Alternate view illustration of creative sketchbook"
+        }
+      ],
+      "description": "A sample blank sketchbook for drawings and early ideas.",
+      "details": [
+        "Demonstration product — not approved inventory",
+        "Specifications are illustrative and need verification",
+        "Price and availability are provisional"
+      ],
+      "availability": "available",
+      "featured": false
+    },
+    {
+      "id": "p15",
+      "slug": "number-learning-cards",
+      "name": "Number Learning Cards",
+      "categoryId": "learning",
+      "price": {
+        "amount": 4200,
+        "currency": "GHS"
+      },
+      "images": [
+        {
+          "src": "/images/cards.svg",
+          "alt": "Illustration of number learning cards"
+        },
+        {
+          "src": "/images/cards.svg",
+          "alt": "Alternate view illustration of number learning cards"
+        }
+      ],
+      "description": "Sample number cards for counting and matching activities.",
+      "details": [
+        "Demonstration product — not approved inventory",
+        "Specifications are illustrative and need verification",
+        "Price and availability are provisional"
+      ],
+      "availability": "available",
+      "featured": false
+    },
+    {
+      "id": "p16",
+      "slug": "desk-notes-collection",
+      "name": "Desk Notes Collection",
+      "categoryId": "office",
+      "price": {
+        "amount": 2600,
+        "currency": "GHS"
+      },
+      "images": [
+        {
+          "src": "/images/paper.svg",
+          "alt": "Illustration of desk notes collection"
+        },
+        {
+          "src": "/images/paper.svg",
+          "alt": "Alternate view illustration of desk notes collection"
+        }
+      ],
+      "description": "Sample paper notes for reminders and planning.",
+      "details": [
+        "Demonstration product — not approved inventory",
+        "Specifications are illustrative and need verification",
+        "Price and availability are provisional"
+      ],
+      "availability": "available",
+      "featured": false
+    },
+    {
+      "id": "p17",
+      "slug": "reading-journal",
+      "name": "Reading Journal",
+      "categoryId": "books",
+      "price": {
+        "amount": 5500,
+        "currency": "GHS"
+      },
+      "images": [
+        {
+          "src": "/images/book.svg",
+          "alt": "Illustration of reading journal"
+        },
+        {
+          "src": "/images/book.svg",
+          "alt": "Alternate view illustration of reading journal"
+        }
+      ],
+      "description": "An illustrative journal fixture for recording reading notes.",
+      "details": [
+        "Demonstration product — not approved inventory",
+        "Specifications are illustrative and need verification",
+        "Price and availability are provisional"
+      ],
+      "availability": "unavailable",
+      "featured": false
+    },
+    {
+      "id": "p18",
+      "slug": "student-ruler",
+      "name": "Student Ruler",
+      "categoryId": "maths",
+      "price": {
+        "amount": 1200,
+        "currency": "GHS"
+      },
+      "images": [
+        {
+          "src": "/images/geometry.svg",
+          "alt": "Illustration of student ruler"
+        },
+        {
+          "src": "/images/geometry.svg",
+          "alt": "Alternate view illustration of student ruler"
+        }
+      ],
+      "description": "A sample ruler for classroom measurement activities.",
+      "details": [
+        "Demonstration product — not approved inventory",
+        "Specifications are illustrative and need verification",
+        "Price and availability are provisional"
+      ],
+      "availability": "available",
+      "featured": false
+    }
+  ]
+}
